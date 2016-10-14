@@ -1,0 +1,14 @@
+body {
+    background-color: #b59ecb;
+	background-image: url("backpurple.png");
+}
+
+h1 {
+    color: black;
+    margin-left: 20px;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}

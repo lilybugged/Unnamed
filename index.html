@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Makeup Inventory</title>
+</head>
+<body id="b1">
+
+<h1>Makeup Inventory</h1>
+<p id="p1"><img src="card hq 3.png" alt="sad face" style="float:right;width:500px;height:500px;">Under Construction. Sorry!</p>
+<script>
+if (document.cookie.includes("user")){
+	var doc = document.cookie.split(/(;|=| )/); 
+	user = doc[doc.indexOf("user")+2];
+	console.log(user);
+}
+if (!document.cookie.includes("logged_in")){
+	document.cookie = "logged_in=false";
+}
+if (document.cookie.substring(document.cookie.indexOf("logged_in")+10,document.cookie.indexOf("logged_in")+15)==="false"||(!document.cookie.includes("logged_in"))){
+	var button1 = document.createElement("BUTTON");
+	var button2 = document.createElement("BUTTON");
+	//button1.addEventListener("click", "window.location = 'http://162.243.47.130/login.html'");
+	//button2.addEventListener("click", "window.location = 'http://162.243.47.130/register.html'");
+	var element = document.getElementById("b1");
+	button1.onclick = function(){window.location = 'http://162.243.47.130/login.html'};
+	button2.onclick = function(){window.location = 'http://162.243.47.130/register.html'};
+	
+	var t = document.createTextNode("Login!");
+	button1.appendChild(t);
+	var t = document.createTextNode("Register!");
+	button2.appendChild(t);
+	element.appendChild(button1);
+	element.appendChild(button2);
+	
+}
+else{
+	var p = document.createElement("P");
+	p.appendChild(document.createTextNode("Welcome, "+user+"!"));
+	var element = document.getElementById("p1");
+	element.appendChild(p);
+	var button1 = document.createElement("BUTTON");
+	button1.onclick = function(){window.location = 'http://162.243.47.130/'; document.cookie="logged_in=false"};
+	var t = document.createTextNode("Logout");
+	button1.appendChild(t);
+	element.appendChild(button1);
+	
+}
+//document.cookie="lists=;";
+console.log(document.cookie.split(/(;|=| )/));
+
+
+</script>
+<!--button onclick="window.location = 'http://162.243.47.130/register.html'">Register!</button>
+<button onclick="window.location = 'http://162.243.47.130/login.html'">Log in!</button-->
+</body>
+</html>

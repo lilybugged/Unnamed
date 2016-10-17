@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ > 
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Makeup Inventory</title>
+</head>
+<body>
+
+<h1>New Item:</h1>
+<p><img src="card hq 3.png" alt="sad face" style="float:right;width:500px;height:500px;">Under Construction. Sorry!</p>
+
+<form action="newitem.php" method="post" name = "newitem" id="newitem">
+Item Name: <input type="text" name="itemname" id = "itemname"><br>
+Item UPC Code: <input type="text" name="itemupc" id = "itemupc"><br>
+Item Brand: <input type="text" name="itembrand" id = "itembrand"><br>
+Item Retail Price: <input type="number" name="itemprice" id = "itemprice"><br>
+Image URL: <input type="url" name="itemurl" id = "itemurl"><br>
+Add To: 
+<script>
+if (document.cookie.includes("listnames")){
+	doc = document.cookie.split(/(;|=| )/); 
+	lists = doc[doc.indexOf("listnames")+2];
+	console.log(lists);
+	for (i=0;i<lists.length;i++){
+		if (lists[i]==="]"||lists[i]==="["){
+			lists = lists.substring(0,i)+lists.substring(i+1);
+		}
+	}
+	console.log(lists);
+}
+if (document.cookie.includes("numlists")){
+	doc = document.cookie.split(/(;|=| )/); 
+	numlists = doc[doc.indexOf("numlists")+2];
+	console.log(numlists);
+}
+
+var x;
+for (var i=0;i<numlists;i++){
+	x = document.createElement("INPUT");
+	x.setAttribute("type", "radio");
+	x.setAttribute("name", "listname");
+	x.setAttribute("id", "listname"+i);
+	x.setAttribute("value", lists.split(",")[i]);
+	
+	document.getElementById("newitem").appendChild(x);
+	document.getElementById("newitem").appendChild(document.createTextNode(lists.split(",")[i]+"  "));
+}
+
+</script>
+<p></p>
+<input type="submit" value="Submit Item">
+</form>
+
+
+</body>
+</html>

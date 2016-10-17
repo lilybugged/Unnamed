@@ -16,12 +16,30 @@ if (document.cookie.includes("user")){
 	user = doc[doc.indexOf("user")+2];
 	console.log(user);
 }
+if (document.cookie.includes("numlists")){
+	doc = document.cookie.split(/(;|=| )/); 
+	numlists = doc[doc.indexOf("numlists")+2];
+	console.log(numlists);
+}
+if (document.cookie.includes("listnames")){
+	doc = document.cookie.split(/(;|=| )/); 
+	lists = doc[doc.indexOf("listnames")+2];
+	console.log(lists);
+	for (i=0;i<lists.length;i++){
+		if (lists.substring(i,i+1)==="]"||lists.substring(i,i+1)==="["){
+			lists = lists.substring(0,i)+lists.substring(i+1);
+		}
+	}
+	console.log(lists);
+}
 if (!document.cookie.includes("logged_in")){
 	document.cookie = "logged_in=false";
 }
 if (document.cookie.substring(document.cookie.indexOf("logged_in")+10,document.cookie.indexOf("logged_in")+15)==="false"||(!document.cookie.includes("logged_in"))){
 	var button1 = document.createElement("BUTTON");
 	var button2 = document.createElement("BUTTON");
+	document.cookie = "listnames=";
+	document.cookie = "numlists=0";
 	//button1.addEventListener("click", "window.location = 'http://162.243.47.130/login.html'");
 	//button2.addEventListener("click", "window.location = 'http://162.243.47.130/register.html'");
 	var element = document.getElementById("b1");
@@ -46,11 +64,44 @@ else{
 	var t = document.createTextNode("Logout");
 	button1.appendChild(t);
 	element.appendChild(button1);
+	var button2 = document.createElement("BUTTON");
+	button2.onclick = function(){window.location = 'http://162.243.47.130/newlist.html'; };
+	var t = document.createTextNode("Create New List");
+	button2.appendChild(t);
+	element.appendChild(button2);
+	
+	//show a list?
+	var form = document.createElement("FORM");
+	form.setAttribute("id","f");
+	form.setAttribute("action","showlist.php");
+	element.appendChild(form);
+	
+	var p = document.createElement("P");
+	p.appendChild(document.createTextNode("Show List:"));
+	element.appendChild(p);
+
+	var x = document.createElement("SELECT");
+	x.setAttribute("id","myselect");
+	x.setAttribute("name","myselect");
+	element.appendChild(x);
+	
+	x = document.getElementById("myselect");
+	var option = document.createElement("option");
+	for (var i=0;i<numlists;i++){
+		option = document.createElement("option");
+		option.text = (lists.split(",")[i]);
+		x.add(option);
+		//console.log(option.text);
+	}
+	
+	var s = document.createElement("BUTTON");
+	s.appendChild(document.createTextNode("Submit"));
+	s.onclick=function(){ document.getElementById("f").submit(); };
+	element.appendChild(s);
 	
 }
 //document.cookie="lists=;";
 console.log(document.cookie.split(/(;|=| )/));
-
 
 </script>
 <!--button onclick="window.location = 'http://162.243.47.130/register.html'">Register!</button>

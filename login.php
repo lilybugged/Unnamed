@@ -58,7 +58,8 @@ else{
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
+header("Refresh:0; url=http://162.243.47.130/success.html");
 //echo "Connected successfully";
 
 $conn->close();

@@ -69,18 +69,32 @@ else{
 	var t = document.createTextNode("Create New List");
 	button2.appendChild(t);
 	element.appendChild(button2);
+	if (numlists>0){
+		var button3 = document.createElement("BUTTON");
+		button3.onclick = function(){window.location = 'http://162.243.47.130/newitem.html'; };
+		var t = document.createTextNode("Add New Item");
+		button3.appendChild(t);
+		element.appendChild(button3);
+	}
+	
+	
+	var p = document.createElement("P");
+	p.appendChild(document.createTextNode("-"));
+	element.appendChild(p);
 	
 	//show a list?
 	var form = document.createElement("FORM");
 	form.setAttribute("id","f");
+	form.setAttribute("name","f");
 	form.setAttribute("action","showlist.php");
+	form.setAttribute("method","post");
 	element.appendChild(form);
 	
-	var p = document.createElement("P");
+	p = document.createElement("P");
 	p.appendChild(document.createTextNode("Show List:"));
-	element.appendChild(p);
+	form.appendChild(p);
 
-	var x = document.createElement("SELECT");
+	/*var x = document.createElement("SELECT");
 	x.setAttribute("id","myselect");
 	x.setAttribute("name","myselect");
 	element.appendChild(x);
@@ -92,12 +106,27 @@ else{
 		option.text = (lists.split(",")[i]);
 		x.add(option);
 		//console.log(option.text);
-	}
+	}*/
+	
+	var x;
+for (var i=0;i<numlists;i++){
+	x = document.createElement("INPUT");
+	x.setAttribute("type", "radio");
+	x.setAttribute("name", "leest");
+	x.setAttribute("id", "listname"+i);
+	x.setAttribute("value", lists.split(",")[i]);
+	
+	form.appendChild(x);
+	form.appendChild(document.createTextNode(lists.split(",")[i]+"  "));
+}
+	p = document.createElement("P");
+	p.appendChild(document.createTextNode(" "));
+	form.appendChild(p);
 	
 	var s = document.createElement("BUTTON");
 	s.appendChild(document.createTextNode("Submit"));
 	s.onclick=function(){ document.getElementById("f").submit(); };
-	element.appendChild(s);
+	form.appendChild(s);
 	
 }
 //document.cookie="lists=;";

@@ -21,9 +21,7 @@ if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false){
 	$q1 = $conn->query($sql) === TRUE;
 	
 	$newid = mysqli_insert_id($conn);
-	/*$sql2 = "INSERT INTO lists (userid, lists) 
-	VALUES ('$newid','[]')";
-	echo $newid;*/
+	echo $newid;
 	
 }
 else{

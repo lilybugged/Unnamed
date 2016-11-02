@@ -22,13 +22,14 @@ if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false){
 	
 }
 else{
-	header("Refresh:0; url=http://162.243.47.130/success.html");
+	echo "email address invalid";
 }
 
 if ($q1) {
-    //echo "New record created successfully";
+    header("Refresh:0; url=http://162.243.47.130/success.html");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
 $conn->close();
 ?>

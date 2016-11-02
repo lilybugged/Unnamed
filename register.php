@@ -20,9 +20,6 @@ if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false){
 	VALUES (LOWER('$first_name'), LOWER('$last_name'), LOWER('$email_address'), ('$user'), ('$pass'))";
 	$q1 = $conn->query($sql) === TRUE;
 	
-	$newid = mysqli_insert_id($conn);
-	echo $newid;
-	
 }
 else{
 	echo "email address invalid";

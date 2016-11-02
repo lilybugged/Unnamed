@@ -1,9 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "kc8pQ6qsab";
-$dbname = "makeup";
-
+include 'vars.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,6 +25,9 @@ if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false){
 	VALUES ('$newid','[]')";
 	echo $newid;*/
 	
+}
+else if(preg_match("/([^A-Za-z])/",$first_name)==1){
+	echo "only letters and numbers allowed";
 }
 else{
 	echo "email address invalid";

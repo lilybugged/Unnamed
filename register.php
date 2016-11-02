@@ -26,9 +26,6 @@ if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false){
 	echo $newid;*/
 	
 }
-else if(preg_match("/([^A-Za-z])/",$first_name)==1){
-	echo "only letters and numbers allowed";
-}
 else{
 	echo "email address invalid";
 }

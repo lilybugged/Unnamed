@@ -22,7 +22,7 @@ if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false){
 	
 }
 else{
-	echo "email address invalid";
+	header("Refresh:0; url=http://162.243.47.130/success.html");
 }
 
 if ($q1) {
@@ -30,9 +30,5 @@ if ($q1) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-if ($q1 && $q2) {
-	header("Refresh:0; url=http://162.243.47.130/success.html");
-}
-
 $conn->close();
 ?>

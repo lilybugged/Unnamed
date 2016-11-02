@@ -28,17 +28,10 @@ else{
 	echo "email address invalid";
 }
 
-
-$q2 = $conn->query($sql) === TRUE;
 if ($q1) {
     //echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
-}
-if ($q2) {
-    //echo "New record created successfully";
-} else {
-	echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 if ($q1 && $q2) {
 	header("Refresh:0; url=http://162.243.47.130/success.html");

@@ -11,11 +11,11 @@
 <h1>Makeup Inventory</h1>
 <p><img src="card hq 3.png" alt="sad face" style="float:right;width:500px;height:500px;">Under Construction. Sorry!</p>
 <form action="register.php" method="post" name = "newform">
-First Name: <input type="text" pattern="[A-Za-z]" name="name"  id="name"><br>
-Last Name: <input type="text" name="lastname" pattern="[A-Za-z]" id="lastname"><br>
-Email: <input type="text" name="email" id = "email"><br>
-Username: <input type="text" name="user" pattern="^[a-zA-Z0-9_]*$" id = "user"><br>
-Password: <input type="password" name="password" id = "password"><br>
+First Name: <input type="text" pattern="[A-Za-z]" name="name"  id="name" required><br>
+Last Name: <input type="text" name="lastname" pattern="[A-Za-z]" id="lastname" required><br>
+Email: <input type="text" name="email" id = "email" required><br>
+Username: <input type="text" name="user" pattern="^[a-zA-Z0-9_]*$" id = "user" required><br>
+Password: <input type="password" name="password" id = "password" required><br>
 
 <button onclick="document.newform.submit()">Register</button>
 </form>

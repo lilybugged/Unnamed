@@ -31,7 +31,7 @@ else{
 }
 
 
-$q2 = $conn->query($sql2) === TRUE;
+$q2 = $conn->query($sql) === TRUE;
 if ($q1) {
     //echo "New record created successfully";
 } else {

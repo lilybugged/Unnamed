@@ -15,14 +15,13 @@ if ($conn->connect_error) {
 } 
 //echo "Connected successfully";
 
-if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false){
+if (strpos($email_address, '@')!==false && strpos($email_address, '.')!==false && strlen($user)>0 && strlen($pass)>0 && !(preg_match("/\W/",$user)===1) && !(preg_match("/\W/",$pass)===1)){
 	$sql = "INSERT INTO users (firstname, lastname, email, user, password)
 	VALUES (LOWER('$first_name'), LOWER('$last_name'), LOWER('$email_address'), ('$user'), ('$pass'))";
 	$q1 = $conn->query($sql) === TRUE;
-	
 }
 else{
-	echo "email address invalid";
+	echo "please input using correct syntax";
 }
 
 if ($q1) {
